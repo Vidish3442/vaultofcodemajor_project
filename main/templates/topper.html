@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topper</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 20px; }
+        .container { max-width: 400px; margin: auto; padding: 30px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; color: #333; font-size: 24px; margin-bottom: 20px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; }
+        button { width: 100%; padding: 10px; background-color: hwb(193 15% 23%); color: white; border: none; cursor: pointer; }
+        button:hover { background-color: hwb(220 12% 39%); }
+        p { text-align: center; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Find Topper</h1>
+        <form method="POST">
+            <input type="text" name="subject" placeholder="Subject" required>
+            <button type="submit">Find Topper</button>
+        </form>
+        {% if topper %}
+            <p>Topper in {{ subject }}: {{ topper[0] }} with grade {{ topper[1] }}</p>
+        {% endif %}
+        <a href="/" class="btn">Home</a>
+    </div>
+</body>
+</html>

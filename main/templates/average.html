@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average Grade</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 20px; }
+        .container { max-width: 400px; margin: auto; padding: 30px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; color: #333; font-size: 24px; margin-bottom: 20px; }
+        p { text-align: center; font-size: 20px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; }
+        button { width: 100%; padding: 10px; background-color: hwb(193 15% 23%); color: white; border: none; cursor: pointer; }
+        button:hover { background-color: hwb(220 12% 39%); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Average Grade</h1>
+        <form method="POST">
+            <input type="text" name="roll_number" placeholder="Roll Number" required>
+            <button type="submit">Calculate Average</button>
+        </form>
+        
+        {% if average is not none %}
+            <p>Average Grade for Roll Number {{ roll_number }}: {{ average }}</p>
+            <div class="details">
+                <h2>Student Details:</h2>
+                <p><strong>Name:</strong> {{ student.name }}</p>
+                <p><strong>Grades:</strong></p>
+                <ul>
+                    {% for grade in student.grades %}
+                        <li>{{ grade[0] }}: {{ grade[1] }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <a href="/" class="btn">Home</a>
+    </div>
+</body>
+</html>
